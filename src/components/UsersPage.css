@@ -1,0 +1,41 @@
+/* src/components/UsersPage.css */
+
+.users-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.users-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.users-list li {
+    margin-bottom: 10px;
+}
+
+.create-user, .edit-user {
+    margin-top: 20px;
+}
+
+.input-field {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
