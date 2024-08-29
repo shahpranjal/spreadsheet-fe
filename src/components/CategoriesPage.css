@@ -1,18 +1,18 @@
-/* src/components/UsersPage.css */
+/* src/components/CategoriesPage.css */
 
-.users-container {
+.categories-container {
     margin: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.users-list {
+.categories-list {
     list-style-type: none;
     padding: 0;
 }
 
-.users-list li {
+.categories-list li {
     margin-bottom: 10px;
     cursor: pointer;
     color: #007bff;
