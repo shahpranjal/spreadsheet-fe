@@ -24,7 +24,7 @@ const Bank = () => {
     }, []);
 
     const fetchBanks = () => {
-        axios.get(`${config.baseUrl}/api/banks`)
+        axios.get(`${config.banksUrl}`)
             .then(response => {
                 setBanks(response.data);
                 setLoading(false);
@@ -63,9 +63,9 @@ const Bank = () => {
     const handleCreateOrUpdateBank = () => {
         let url = ""
         if (editingBank) {
-            url = `${config.baseUrl}/api/banks/${editingBank.id}`
+            url = `${config.banksUrl}/${editingBank.id}`
         } else {
-            url = `${config.baseUrl}/api/banks/create_bank`
+            url = `${config.banksUrl}/create_bank`
         }
         axios.post(url, newBank)
             .then(response => {

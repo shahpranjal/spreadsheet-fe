@@ -21,7 +21,7 @@ const Users = () => {
 
     const fetchUsers = () => {
         setLoading(true);
-        axios.get(`${config.baseUrl}/api/users`)
+        axios.get(`${config.usersUrl}`)
             .then(response => {
                 setUsers(response.data);
                 setLoading(false);
@@ -44,7 +44,7 @@ const Users = () => {
     };
 
     const handleCreateUser = () => {
-        axios.post(`${config.baseUrl}/api/users/create_user`, { name: newUserName })
+        axios.post(`${config.usersUrl}/create_user`, { name: newUserName })
             .then(response => {
                 setUsers([...users, response.data]);
                 setNewUserName("");
@@ -57,7 +57,7 @@ const Users = () => {
     };
 
     const handleUpdateUser = () => {
-        axios.put(`${config.baseUrl}/api/users/${selectedUser.id}`, { name: updatedUserName })
+        axios.put(`${config.usersUrl}/${selectedUser.id}`, { name: updatedUserName })
             .then(response => {
                 setUsers(users.map(user => user.id === selectedUser.id ? response.data : user));
                 setIsEditModalOpen(false);
@@ -70,7 +70,7 @@ const Users = () => {
 
     const handleDeleteUser = () => {
         if (window.confirm("Are you sure you want to delete this user?")) {
-            axios.delete(`${config.baseUrl}/api/users/${selectedUser.id}`)
+            axios.delete(`${config.usersUrl}/${selectedUser.id}`)
                 .then(() => {
                     setUsers(users.filter(user => user.id !== selectedUser.id));
                     setIsEditModalOpen(false);

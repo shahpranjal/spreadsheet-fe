@@ -21,7 +21,7 @@ const Categories = () => {
 
     const fetchCategories = () => {
         setLoading(true);
-        axios.get(`${config.baseUrl}/api/categories`)
+        axios.get(`${config.categoriesUrl}`)
             .then(response => {
                 setCategories(response.data);
                 setLoading(false);
@@ -44,7 +44,7 @@ const Categories = () => {
     };
 
     const handleCreateCategory = () => {
-        axios.post(`${config.baseUrl}/api/categories/create_category`, { name: newCategoryName })
+        axios.post(`${config.categoriesUrl}/create_category`, { name: newCategoryName })
             .then(response => {
                 setCategories([...categories, response.data]);
                 setNewCategoryName("");
@@ -57,7 +57,7 @@ const Categories = () => {
     };
 
     const handleUpdateCategory = () => {
-        axios.put(`${config.baseUrl}/api/categories/${selectedCategory.id}`, { name: updatedCategoryName })
+        axios.put(`${config.categoriesUrl}/${selectedCategory.id}`, { name: updatedCategoryName })
             .then(response => {
                 setCategories(categories.map(category => category.id === selectedCategory.id ? response.data : category));
                 setIsEditModalOpen(false);
@@ -70,7 +70,7 @@ const Categories = () => {
 
     const handleDeleteCategory = () => {
         if (window.confirm("Are you sure you want to delete this category?")) {
-            axios.delete(`${config.baseUrl}/api/categories/${selectedCategory.id}`)
+            axios.delete(`${config.categoriesUrl}/${selectedCategory.id}`)
                 .then(() => {
                     setCategories(categories.filter(category => category.id !== selectedCategory.id));
                     setIsEditModalOpen(false);
