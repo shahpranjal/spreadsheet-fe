@@ -1,38 +1,4 @@
-/* src/components/CategoriesPage.css */
-
-.categories-container {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.categories-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.categories-list li {
-    margin-bottom: 10px;
-    cursor: pointer;
-    color: #007bff;
-    text-decoration: underline;
-}
-
-.create-button {
-    margin-bottom: 20px;
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.create-button:hover {
-    background-color: #218838;
-}
-
+/* Modal Styles */
 .modal {
     position: absolute;
     top: 50%;
@@ -43,6 +9,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
+    max-width: 100%;
 }
 
 .modal-overlay {
@@ -54,19 +21,24 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
+/* Input Field Styles */
 .input-field {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 3px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-.modal-buttons {
-    display: flex;
-    justify-content: space-between;
+.input-field:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #f0f8ff;
 }
 
+/* Button Styles */
 .button {
     padding: 8px 12px;
     background-color: #007bff;
@@ -74,10 +46,32 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    text-align: center;
 }
 
 .button:hover {
     background-color: #0056b3;
+}
+
+/* Modal Button Container */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+create-button {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background-color: #007bff;
 }
 
 .delete-button {

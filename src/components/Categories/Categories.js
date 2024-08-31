@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
-import config from '../config';
-import './CategoriesPage.css';
+import config from '../../config';
+import './Categories.css';
+import '../styles/common.css';
 
-const CategoriesPage = () => {
+const Categories = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -158,4 +159,4 @@ const CategoriesPage = () => {
     );
 };
 
-export default CategoriesPage;
+export default Categories;

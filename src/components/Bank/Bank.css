@@ -1,0 +1,18 @@
+.banks-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.banks-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bank-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UploadCsvPage = () => {
+const UploadCsv = () => {
     return (
         <div>
             <h2>Upload CSV Page</h2>
@@ -9,4 +9,4 @@ const UploadCsvPage = () => {
     );
 };
 
-export default UploadCsvPage;
+export default UploadCsv;

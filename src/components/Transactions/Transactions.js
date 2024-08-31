@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TransactionsPage = () => {
+const Transactions = () => {
     return (
         <div>
             <h2>Transactions Page</h2>
@@ -9,4 +9,4 @@ const TransactionsPage = () => {
     );
 };
 
-export default TransactionsPage;
+export default Transactions;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
-import config from '../config';
-import './UsersPage.css';
+import config from '../../config';
+import './Users.css';
+import '../styles/common.css';
 
-const UsersPage = () => {
+const Users = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -158,4 +159,4 @@ const UsersPage = () => {
     );
 };
 
-export default UsersPage;
+export default Users;

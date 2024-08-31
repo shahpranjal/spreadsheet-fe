@@ -1,0 +1,20 @@
+/* src/components/Categories.css */
+
+.categories-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.categories-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categories-list li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+}
