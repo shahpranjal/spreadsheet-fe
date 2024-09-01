@@ -6,6 +6,7 @@ const config = {
     banksUrl: `${baseUrl}/api/banks`,
     categoriesUrl: `${baseUrl}/api/categories`,
     uploadUrl: `${baseUrl}/api/upload`,
+    transactionUrl: `${baseUrl}/api/transactions`,
 };
 
 export default config;
