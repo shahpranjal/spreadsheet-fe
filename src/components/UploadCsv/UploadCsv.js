@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import './UploadCsv.css';
 import '../styles/common.css';
 import config from "../../config";
@@ -12,8 +10,6 @@ const UploadCsv = () => {
     const [banks, setBanks] = useState([]);
     const [selectedUser, setSelectedUser] = useState('');
     const [selectedBank, setSelectedBank] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
     const [message, setMessage] = useState('');
 
     useEffect(() => {
@@ -48,8 +44,6 @@ const UploadCsv = () => {
         formData.append('file', file);
         formData.append('user_id', selectedUser);
         formData.append('bank_id', selectedBank);
-        formData.append('start_date', startDate.toISOString().split('T')[0]);
-        formData.append('end_date', endDate.toISOString().split('T')[0]);
 
         try {
             await axios.post(`${config.uploadUrl}/upload_file`, formData, {
@@ -80,24 +74,6 @@ const UploadCsv = () => {
                     <option key={bank.id} value={bank.id}>{bank.name}</option>
                 ))}
             </select>
-            <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="yyyy-MM-dd"
-                placeholderText="Start Date"
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-            />
-            <DatePicker
-                selected={endDate}
-                onChange={(date) => setEndDate(date)}
-                dateFormat="yyyy-MM-dd"
-                placeholderText="End Date"
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-            />
             <button onClick={handleUpload}>Upload</button>
             {message && <p>{message}</p>}
         </div>

@@ -34,13 +34,3 @@
 .upload-csv-container button:hover {
     background-color: #0056b3;
 }
-
-.date-picker-container {
-    margin-bottom: 10px;
-}
-
-.date-picker-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
