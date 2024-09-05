@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import config from '../../config';
 import './Transactions.css';
@@ -131,44 +131,26 @@ const Transactions = () => {
                     <th>Category</th>
                     <th>Status</th>
                     <th>User</th>
-                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 {transactions.map(transaction => (
-                    <tr key={transaction.id}>
+                    <tr key={transaction.id} onClick={() => openModal(transaction)}>
                         <td>{transaction.date}</td>
                         <td>{transaction.description}</td>
                         <td>{transaction.debit - transaction.credit}</td>
                         <td>
-                            <select
-                                value={transaction.category_id || ''}
-                                onChange={(e) => handleCategoryChange(transaction.id, e.target.value)}
-                            >
-                                <option value="">Select Category</option>
-                                {categories.map(category => (
-                                    <option key={category.id} value={category.id}>
-                                        {category.name}
-                                    </option>
-                                ))}
-                            </select>
+                            <span>{categories.find(category => category.id === transaction.category_id)?.name || '-'}</span>
                         </td>
                         <td>
-                            <select
-                                value={transaction.status || 'pending'}
-                                onChange={(e) => handleStatusChange(transaction.id, e.target.value)}
-                            >
-                                <option value="pending">Pending</option>
-                                <option value="processed">Processed</option>
-                                <option value="skip">Skip</option>
-                            </select>
+                          <span>
+                            {transaction.status
+                                ? transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1)
+                                : 'Pending'}
+                          </span>
                         </td>
                         <td>
                             {users.find(user => user.id === transaction.user_id)?.name || 'Unknown User'}
-                        </td>
-                        <td>
-                            <button className="button" onClick={() => saveTransaction(transaction.id)}>Save</button>
-                            <button className="button" onClick={() => openModal(transaction)}>Edit</button>
                         </td>
                     </tr>
                 ))}
