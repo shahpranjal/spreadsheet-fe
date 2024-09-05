@@ -278,8 +278,8 @@ const Transactions = () => {
                         </select>
 
                         <div className="modal-buttons">
-                            <button className="button" onClick={updateTransaction}>Save</button>
                             <button className="button" onClick={closeModal}>Cancel</button>
+                            <button className="button" onClick={updateTransaction}>Save</button>
                         </div>
                     </div>
                 )}
