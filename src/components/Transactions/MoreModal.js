@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-const MoreModal = ({ isOpen, onRequestClose, transaction, users, banks, categories, handleInputChange, updateTransaction }) => {
+const MoreModal = ({ isOpen, onRequestClose, transaction, users, banks, categories, handleInputChange, updateTransaction, onHide }) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -121,6 +121,7 @@ const MoreModal = ({ isOpen, onRequestClose, transaction, users, banks, categori
 
                     <div className="modal-buttons">
                         <button className="button" onClick={onRequestClose}>Cancel</button>
+                        <button className="button" onClick={onHide}>Hide</button>
                         <button className="button" onClick={updateTransaction}>Save</button>
                     </div>
                 </div>

@@ -100,6 +100,11 @@ const Transactions = () => {
         setSelectedTransaction(null);
     };
 
+    const openBasicModalFromMore = () => {
+        setIsMoreModalOpen(false);
+        setIsBasicModalOpen(true);
+    };
+
     const calculateAmount = (transaction) => {
         return transaction.debit - transaction.credit;
     };
@@ -161,6 +166,7 @@ const Transactions = () => {
                 categories={categories}
                 handleInputChange={handleInputChange}
                 updateTransaction={updateTransaction}
+                onHide={openBasicModalFromMore}
             />
         </div>
     );
