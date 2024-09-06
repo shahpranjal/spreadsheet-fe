@@ -131,58 +131,68 @@ const Bank = () => {
                 overlayClassName="modal-overlay"
             >
                 <h2>{editingBank ? "Edit Bank" : "Create Bank"}</h2>
-                <label htmlFor="name">Bank Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={newBank.name}
-                    onChange={handleInputChange}
-                    className="input-field"
-                    placeholder="Bank Name"
-                />
-                <label htmlFor="description_column">Description Column</label>
-                <input
-                    type="text"
-                    name="description_column"
-                    value={newBank.description_column}
-                    onChange={handleInputChange}
-                    className="input-field"
-                    placeholder="Description Column"
-                />
-                <label htmlFor="date_column">Date Column</label>
-                <input
-                    type="text"
-                    name="date_column"
-                    value={newBank.date_column}
-                    onChange={handleInputChange}
-                    className="input-field"
-                    placeholder="Date Column"
-                />
-                <label htmlFor="debit_column">Debit Column</label>
-                <input
-                    type="text"
-                    name="debit_column"
-                    value={newBank.debit_column}
-                    onChange={handleInputChange}
-                    className="input-field"
-                    placeholder="Debit Column"
-                />
-                <label htmlFor="credit_column">Credit Column</label>
-                <input
-                    type="text"
-                    name="credit_column"
-                    value={newBank.credit_column}
-                    onChange={handleInputChange}
-                    className="input-field"
-                    placeholder="Credit Column"
-                />
-                <div className="modal-buttons">
-                    <button className="button" onClick={handleCreateOrUpdateBank}>Save</button>
-                    <button className="button" onClick={closeModal}>Cancel</button>
+                <div className="form-group">
+                    <label htmlFor="name">Bank Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={newBank.name}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="Bank Name"
+                    />
                 </div>
+                <div className="form-group">
+                    <label htmlFor="description_column">Description Column</label>
+                    <input
+                        type="text"
+                        name="description_column"
+                        value={newBank.description_column}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="Description Column"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="date_column">Date Column</label>
+                    <input
+                        type="text"
+                        name="date_column"
+                        value={newBank.date_column}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="Date Column"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="debit_column">Debit Column</label>
+                    <input
+                        type="text"
+                        name="debit_column"
+                        value={newBank.debit_column}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="Debit Column"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="credit_column">Credit Column</label>
+                    <input
+                        type="text"
+                        name="credit_column"
+                        value={newBank.credit_column}
+                        onChange={handleInputChange}
+                        className="input-field"
+                        placeholder="Credit Column"
+                    />
+                </div>
+                    <div className="modal-buttons">
+                        <button className="button" onClick={handleCreateOrUpdateBank}>Save</button>
+                        <button className="button" onClick={closeModal}>Cancel</button>
+                    </div>
             </Modal>
         </div>
-    );
+);
 };
 
 export default Bank;

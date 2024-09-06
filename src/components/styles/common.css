@@ -8,7 +8,7 @@
     padding: 20px !important;
     border-radius: 10px !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-    width: 300px !important;
+    width: 320px !important;
     max-width: 100% !important;
 }
 
@@ -31,32 +31,40 @@
     z-index: 999;
 }
 
-.input-field {
-    width: 100%;
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    width: 150px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.input-field, .select-field {
+    flex: 1;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 3px;
     box-sizing: border-box;
+    width: 100%;
     transition: border-color 0.3s ease;
+    text-align: left;
 }
 
-.input-field:focus {
-    border-color: #007bff;
-    outline: none;
-    background-color: #f0f8ff;
+.read-only {
+    background-color: #f0f0f0;
+    color: #999;
+    border: 1px solid #ccc;
+    cursor: not-allowed;
 }
 
 .select-field {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-    background-color: white;
-    appearance: none; /* Removes the default arrow in some browsers */
+    appearance: none;
 }
 
 .select-field::after {
@@ -71,35 +79,6 @@
     pointer-events: none;
 }
 
-/* Hover and Focus Styles */
-.select-field:focus,
-.select-field:hover {
-    border-color: #007bff;
-    outline: none;
-    background-color: #f0f8ff;
-}
-
-/* Button Styles */
-.button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    text-align: center;
-    margin-right: 10px;
-}
-
-.button:last-child {
-    margin-right: 0;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* Modal Button Container */
 .modal-buttons {
     display: flex;
     justify-content: space-between;
@@ -120,10 +99,49 @@
     background-color: #007bff;
 }
 
+/* Hover and Focus Styles */
+.input-field:focus, .select-field:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #f0f8ff;
+}
+
 .delete-button {
     background-color: #dc3545;
 }
 
 .delete-button:hover {
     background-color: #c82333;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    width: 120px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:last-child {
+    margin-right: 0;
+}
+
+.button:hover {
+    background-color: #0056b3;
 }
