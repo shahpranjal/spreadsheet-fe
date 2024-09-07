@@ -1,7 +1,20 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-const MoreModal = ({ isOpen, onRequestClose, transaction, users, banks, categories, handleInputChange, updateTransaction, onHide }) => {
+const MoreModal = ({
+                       isOpen,
+                       onRequestClose,
+                       transaction,
+                       users,
+                       banks,
+                       categories,
+                       handleInputChange,
+                       onHide,
+                       goToPreviousTransaction,
+                       goToNextTransaction,
+                       isFirstTransaction,
+                       isLastTransaction
+                   }) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -39,10 +52,11 @@ const MoreModal = ({ isOpen, onRequestClose, transaction, users, banks, categori
                         <label htmlFor="category_id">Category:</label>
                         <select
                             name="category_id"
-                            value={transaction.category_id}
+                            value={transaction.category_id || ''}
                             onChange={handleInputChange}
                             className="select-field"
                         >
+                            <option value="" disabled>Select Category</option>
                             {categories.map(category => (
                                 <option key={category.id} value={category.id}>
                                     {category.name}
@@ -120,9 +134,11 @@ const MoreModal = ({ isOpen, onRequestClose, transaction, users, banks, categori
                     </div>
 
                     <div className="modal-buttons">
-                        <button className="button" onClick={onRequestClose}>Cancel</button>
+                        <button className="button" onClick={goToPreviousTransaction}
+                                disabled={isFirstTransaction}>Previous
+                        </button>
                         <button className="button" onClick={onHide}>Hide</button>
-                        <button className="button" onClick={updateTransaction}>Save</button>
+                        <button className="button" onClick={goToNextTransaction} disabled={isLastTransaction}>Next</button>
                     </div>
                 </div>
             )}

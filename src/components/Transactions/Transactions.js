@@ -74,7 +74,6 @@ const Transactions = () => {
             setTransactions(transactions.map(t =>
                 t.id === updatedTransaction.id ? updatedTransaction : t
             ));
-            closeMoreModal();
         } catch (error) {
             alert(`Error: ${error.response?.data?.message || error.message}`);
         }
@@ -107,6 +106,33 @@ const Transactions = () => {
 
     const calculateAmount = (transaction) => {
         return transaction.debit - transaction.credit;
+    };
+
+    const goToPreviousTransaction = async () => {
+        const currentIndex = transactions.findIndex(t => t.id === selectedTransaction.id);
+        if (currentIndex > 0) {
+            if (hasTransactionChanged()) {
+                await updateTransaction();
+            }
+            closeMoreModal();
+            openBasicModal(transactions[currentIndex + 1]);
+        }
+    };
+
+    const goToNextTransaction = async () => {
+        const currentIndex = transactions.findIndex(t => t.id === selectedTransaction.id);
+        if (currentIndex < transactions.length - 1) {
+            if (hasTransactionChanged()) {
+                await updateTransaction();
+            }
+            closeMoreModal();
+            openBasicModal(transactions[currentIndex + 1]);
+        }
+    };
+
+    const hasTransactionChanged = () => {
+        const originalTransaction = transactions.find(t => t.id === selectedTransaction.id);
+        return JSON.stringify(originalTransaction) !== JSON.stringify(selectedTransaction);
     };
 
     return (
@@ -154,7 +180,10 @@ const Transactions = () => {
                 handleInputChange={handleInputChange}
                 openMoreModal={openMoreModal}
                 calculateAmount={calculateAmount}
-                updateTransaction={updateTransaction}
+                goToPreviousTransaction={goToPreviousTransaction}
+                goToNextTransaction={goToNextTransaction}
+                isFirstTransaction={transactions[0]?.id === selectedTransaction?.id}
+                isLastTransaction={transactions[transactions.length - 1]?.id === selectedTransaction?.id}
             />
 
             <MoreModal
@@ -165,8 +194,11 @@ const Transactions = () => {
                 banks={banks}
                 categories={categories}
                 handleInputChange={handleInputChange}
-                updateTransaction={updateTransaction}
                 onHide={openBasicModalFromMore}
+                goToPreviousTransaction={goToPreviousTransaction}
+                goToNextTransaction={goToNextTransaction}
+                isFirstTransaction={transactions[0]?.id === selectedTransaction?.id}
+                isLastTransaction={transactions[transactions.length - 1]?.id === selectedTransaction?.id}
             />
         </div>
     );
