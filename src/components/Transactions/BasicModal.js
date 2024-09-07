@@ -23,7 +23,7 @@ const BasicModal = ({
         >
             {transaction && (
                 <div>
-                    <h2>Assign Category</h2>
+                    <h2>{transaction.description}</h2>
 
                     <div className="form-group">
                         <label htmlFor="date">Date:</label>
@@ -42,17 +42,6 @@ const BasicModal = ({
                             type="text"
                             name="amount"
                             value={calculateAmount(transaction)}
-                            className="input-field read-only"
-                            readOnly
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="description">Description:</label>
-                        <input
-                            type="text"
-                            name="description"
-                            value={transaction.description}
                             className="input-field read-only"
                             readOnly
                         />

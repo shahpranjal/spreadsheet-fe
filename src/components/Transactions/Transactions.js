@@ -3,8 +3,8 @@ import axios from 'axios';
 import config from '../../config';
 import './Transactions.css';
 import '../styles/common.css';
-import BasicModal from './BasicModal'; // Import BasicModal
-import MoreModal from './MoreModal'; // Import MoreModal
+import BasicModal from './BasicModal';
+import MoreModal from './MoreModal';
 
 const Transactions = () => {
     const [transactions, setTransactions] = useState([]);
@@ -21,6 +21,21 @@ const Transactions = () => {
         fetchCategories();
         fetchBanks();
     }, []);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowLeft') {
+                goToPreviousTransaction();
+            } else if (e.key === 'ArrowRight') {
+                goToNextTransaction();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [selectedTransaction]);
 
     const fetchTransactions = async () => {
         try {
@@ -115,7 +130,7 @@ const Transactions = () => {
                 await updateTransaction();
             }
             closeMoreModal();
-            openBasicModal(transactions[currentIndex + 1]);
+            openBasicModal(transactions[currentIndex - 1]);
         }
     };
 
