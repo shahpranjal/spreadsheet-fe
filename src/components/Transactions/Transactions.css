@@ -4,13 +4,29 @@
 }
 
 .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     margin-bottom: 20px;
 }
 
+.filters input,
 .filters select {
-    margin-right: 10px;
-    padding: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
 }
+
+.filters input[type="date"] {
+    width: 150px;
+}
+
 
 .transactions-table {
     width: 100%;

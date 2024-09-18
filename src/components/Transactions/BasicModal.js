@@ -69,7 +69,7 @@ const BasicModal = ({
                                 disabled={isFirstTransaction}>Previous
                         </button>
                         <button className="button" onClick={openMoreModal}>More</button>
-                        <button className="button" onClick={goToNextTransaction} disabled={isLastTransaction}>Next
+                        <button className="button" onClick={goToNextTransaction}>{isLastTransaction ? "Save" : "Next"}
                         </button>
                     </div>
                 </div>
